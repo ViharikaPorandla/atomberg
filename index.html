@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Atomberg Fan Controller</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<h2>Atomberg Smart Fan Controller</h2>
+
+<section>
+  <h3>Credentials</h3>
+  <input id="apiKey" placeholder="API Key" />
+  <input id="refreshToken" placeholder="Refresh Token" />
+  <button onclick="getAccessToken()">Get Access Token</button>
+</section>
+
+<section>
+  <h3>My Fans</h3>
+  <button onclick="loadDevices()">Load Devices</button>
+  <select id="devices" onchange="loadState()"></select>
+</section>
+
+<section>
+  <h3>Controls</h3>
+  <p id="state">State: —</p>
+  <button onclick="sendCommand('power',1)">Power ON</button>
+  <button onclick="sendCommand('power',0)">Power OFF</button>
+
+  <select onchange="sendCommand('speed',this.value)">
+    <option value="">Speed</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+  </select>
+</section>
+
+<pre id="log"></pre>
+
+<script src="app.js"></script>
+</body>
+</html>
